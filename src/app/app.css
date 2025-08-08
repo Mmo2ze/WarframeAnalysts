@@ -1,0 +1,124 @@
+
+    /* Base Styles */
+  .search-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 1rem;
+    font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  }
+
+.search-wrapper {
+  position: relative;
+}
+
+/* Search Input */
+.search-input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.75rem 2.5rem 0.75rem 1rem;
+  font-size: 1rem;
+  border: 2px solid #3a3a3a;
+  border-radius: 6px;
+  background-color: #1e1e1e;
+  color: #ffffff;
+  transition: all 0.2s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #ff6d00;
+  box-shadow: 0 0 0 2px rgba(255, 109, 0, 0.2);
+}
+
+.search-icon {
+  position: absolute;
+  right: 1rem;
+  color: #666;
+  pointer-events: none;
+}
+
+/* Loading Spinner */
+.loading-spinner {
+  position: absolute;
+  right: 1rem;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 109, 0, 0.2);
+  border-top: 3px solid #ff6d00;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Search Results */
+.search-results {
+  position: absolute;
+  width: 100%;
+  max-height: 400px;
+  overflow-y: auto;
+  margin-top: 0.5rem;
+  background: #2a2a2a;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 100;
+}
+
+.result-item {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.result-item:hover {
+  background-color: #3a3a3a;
+}
+
+.item-thumbnail {
+  width: 40px;
+  height: 40px;
+  margin-right: 1rem;
+  border-radius: 4px;
+  object-fit: contain;
+}
+
+.item-name {
+  color: #ffffff;
+  font-size: 0.95rem;
+}
+
+/* Empty State */
+.empty-state {
+  padding: 1rem;
+  color: #999;
+  text-align: center;
+  background: #2a2a2a;
+  border-radius: 6px;
+  margin-top: 0.5rem;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .search-container {
+    padding: 0.5rem;
+  }
+
+  .search-input {
+    padding: 0.65rem 2.25rem 0.65rem 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  .search-results {
+    max-height: 300px;
+  }
+}

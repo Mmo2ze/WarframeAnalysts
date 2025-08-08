@@ -1,0 +1,281 @@
+.warframe-orders-container {
+  font-family: 'Rajdhani', 'Segoe UI', sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  background: rgba(10, 10, 15, 0.85);
+  border: 1px solid #3a3a4a;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(100, 200, 255, 0.1);
+  color: #e0e0e0;
+}
+
+/* Item Header Section */
+.item-header {
+  display: flex;
+  padding: 20px;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border-bottom: 1px solid #3a3a4a;
+  position: relative;
+  overflow: hidden;
+}
+
+.item-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #f0c14b, transparent);
+}
+
+.item-thumbnail {
+  width: 240px;
+  height: 240px;
+  border: 2px solid #3a3a4a;
+  border-radius: 4px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  position: relative;
+  z-index: 1;
+}
+
+.item-thumbnail:hover {
+  border-color: #f0c14b;
+}
+
+.item-info {
+  flex: 1;
+  padding-left: 20px;
+  position: relative;
+}
+
+.item-info h2 {
+  margin: 0 0 10px 0;
+  font-size: 28px;
+  font-weight: 600;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(100, 200, 255, 0.3);
+}
+
+.item-meta {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+  align-items: center;
+}
+
+.rarity {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.rarity.vaulted {
+  background: linear-gradient(135deg, #6a3093 0%, #a044ff 100%);
+  color: white;
+}
+
+.rarity.unvaulted {
+  background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+  color: white;
+}
+
+.ducats {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+  color: #f0c14b;
+}
+
+.icon-ducat {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-image: url('https://warframe.market/static/assets/icons/ducats.a00a6034c5379b0e3569.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Orders Tabs */
+.orders-tabs {
+  display: flex;
+  background: #1a1a2e;
+  border-bottom: 1px solid #3a3a4a;
+}
+
+.tab {
+  padding: 12px 20px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #8a8a9e;
+  position: relative;
+}
+
+.tab.active {
+  color: #f0c14b;
+}
+
+.tab.active::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #f0c14b;
+  box-shadow: 0 0 10px #f0c14b;
+}
+
+/* Orders List */
+.orders-list {
+  background: rgba(15, 15, 25, 0.7);
+}
+
+.order-card {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 20px;
+  border-bottom: 1px solid #2a2a3a;
+  transition: all 0.2s ease;
+}
+
+.order-card:hover {
+  background: rgba(50, 50, 70, 0.3);
+}
+
+.order-price {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  min-width: 120px;
+}
+
+.platinum {
+  font-size: 24px;
+  font-weight: 600;
+  color: #8fb3ff;
+}
+
+.plat-icon {
+  color: #8fb3ff;
+  font-size: 20px;
+}
+
+.quantity {
+  font-size: 14px;
+  color: #8a8a9e;
+  margin-left: 5px;
+}
+
+.order-details {
+  flex: 1;
+  padding-left: 20px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.user-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid #3a3a4a;
+  object-fit: cover;
+}
+
+.username {
+  font-weight: 600;
+  color: #e0e0e0;
+}
+
+.reputation {
+  font-size: 12px;
+  color: #8a8a9e;
+  margin-left: 8px;
+}
+
+.order-meta {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  font-size: 12px;
+  color: #8a8a9e;
+}
+
+.platform i {
+  font-style: normal;
+}
+
+.icon-pc::before {
+  content: "🖥️";
+}
+
+.icon-ps4::before {
+  content: "🎮";
+}
+
+.icon-xbox::before {
+  content: "🅧";
+}
+
+.icon-switch::before {
+  content: "🎮";
+}
+
+.status {
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 11px;
+}
+
+.status.online {
+  background: rgba(0, 255, 100, 0.1);
+  color: #00ff64;
+}
+
+.status.ingame {
+  background: rgba(0, 150, 255, 0.1);
+  color: #0096ff;
+}
+
+.status.offline {
+  background: rgba(255, 50, 50, 0.1);
+  color: #ff3232;
+}
+
+.update-time {
+  margin-left: auto;
+}
+
+/* Animation for Orokin-style effects */
+@keyframes orokinPulse {
+  0% { opacity: 0.3; }
+  50% { opacity: 0.7; }
+  100% { opacity: 0.3; }
+}
+
+.item-header::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg,
+  rgba(240, 193, 75, 0.03) 0%,
+  rgba(240, 193, 75, 0.01) 50%,
+  rgba(240, 193, 75, 0.03) 100%);
+  pointer-events: none;
+  animation: orokinPulse 8s infinite;
+}
