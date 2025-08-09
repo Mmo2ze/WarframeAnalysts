@@ -170,7 +170,7 @@
 
 .quantity {
   font-size: 14px;
-  color: #8a8a9e;
+  color: #c5b834;
   margin-left: 5px;
 }
 
@@ -196,7 +196,7 @@
 
 .username {
   font-weight: 600;
-  color: #e0e0e0;
+  color: rgba(46, 116, 166, 0.97);
 }
 
 .reputation {
@@ -256,6 +256,7 @@
 
 .update-time {
   margin-left: auto;
+    font-size: 14px;
 }
 
 /* Animation for Orokin-style effects */
@@ -278,4 +279,284 @@
   rgba(240, 193, 75, 0.03) 100%);
   pointer-events: none;
   animation: orokinPulse 8s infinite;
+}
+
+/* Mobile Overrides (600px and below) */
+@media (max-width: 600px) {
+  /* ===== Mobile-First Warframe Orders Component ===== */
+  .warframe-orders-container {
+    font-family: 'Rajdhani', 'Segoe UI', sans-serif;
+    background: rgba(10, 10, 15, 0.95);
+    color: #e0e0e0;
+    margin: 0;
+    border-radius: 0;
+    border: none;
+    border-bottom: 1px solid #3a3a4a;
+  }
+
+  /* Item Header */
+  .item-header {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    border-bottom: 1px solid #3a3a4a;
+    text-align: center;
+  }
+
+  .item-thumbnail {
+    width: 160px;
+    height: 160px;
+    margin: 0 auto 12px;
+    border: 2px solid #3a3a4a;
+    border-radius: 4px;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  .item-info h2 {
+    margin: 0 0 8px 0;
+    font-size: 24px;
+    font-weight: 600;
+    color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0 10px;
+  }
+
+  .item-meta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 5px;
+  }
+
+  .rarity {
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .rarity.vaulted {
+    background: linear-gradient(135deg, #6a3093 0%, #a044ff 100%);
+  }
+
+  .rarity.unvaulted {
+    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+  }
+
+  .ducats {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+    color: #f0c14b;
+  }
+
+  /* Orders Tabs */
+  .orders-tabs {
+    display: flex;
+    background: #1a1a2e;
+    border-bottom: 1px solid #3a3a4a;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 0 8px;
+  }
+
+  .tab {
+    padding: 14px 18px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #8a8a9e;
+    white-space: nowrap;
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  .tab.active {
+    color: #f0c14b;
+  }
+
+  .tab.active::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 18px;
+    right: 18px;
+    height: 2px;
+    background: #f0c14b;
+  }
+
+  /* ===== Mobile Order Card - 3 Column Layout ===== */
+  .order-card {
+    display: grid;
+    grid-template-columns: auto 1fr auto; /* 3 columns */
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    border-bottom: 1px solid #2a2a3a;
+    background: rgba(20, 20, 30, 0.7);
+  }
+
+  /* Column 1: Price & Quantity */
+  .order-price {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    min-width: 70px;
+  }
+
+  .platinum {
+    font-size: 20px;
+    font-weight: 700;
+    color: #8fb3ff;
+  }
+
+  .plat-icon {
+    color: #8fb3ff;
+    font-size: 16px;
+    margin-top: 2px;
+  }
+
+  .quantity {
+    font-size: 13px;
+    color: #8a8a9e;
+    margin-left: 2px;
+  }
+
+  /* Column 2: Avatar & User Info */
+  .user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0; /* Enables text truncation */
+    overflow: hidden;
+  }
+
+  .user-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid #3a3a4a;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+
+  .user-details {
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .username {
+    font-weight: 600;
+    color: #e0e0e0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 14px;
+  }
+
+  .reputation {
+    font-size: 11px;
+    color: #8a8a9e;
+    display: block;
+    margin-top: 2px;
+  }
+
+  /* Column 3: Status & Date */
+  .order-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+  }
+
+  .status {
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .update-time {
+    font-size: 11px;
+    color: #8a8a9e;
+    white-space: nowrap;
+  }
+
+  /* Status Colors */
+  .status.online { background: rgba(0, 255, 100, 0.15); color: #00ff64; }
+  .status.ingame { background: rgba(0, 150, 255, 0.15); color: #0096ff; }
+  .status.offline { background: rgba(255, 50, 50, 0.15); color: #ff3232; }
+
+  /* Touch Feedback */
+  .order-card:active {
+    background: rgba(80, 80, 100, 0.4);
+  }
+
+  /* Status Colors */
+  .status.online { background: rgba(0, 255, 100, 0.15); color: #00ff64; }
+  .status.ingame { background: rgba(0, 150, 255, 0.15); color: #0096ff; }
+  .status.offline { background: rgba(255, 50, 50, 0.15); color: #ff3232; }
+
+  /* Touch Interactions */
+  .order-card:active {
+    transform: scale(0.98);
+    background: rgba(80, 80, 100, 0.3);
+  }
+
+  .tab:active {
+    opacity: 0.8;
+  }
+
+  /* Hide scrollbar but keep scrolling */
+  .orders-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Small Mobile Tweaks */
+  @media (max-width: 400px) {
+    .item-thumbnail {
+      width: 140px;
+      height: 140px;
+    }
+
+    .item-info h2 {
+      font-size: 22px;
+    }
+
+    .order-card {
+      padding: 12px;
+    }
+
+    .platinum {
+      font-size: 18px;
+    }
+
+    .user-avatar {
+      width: 28px;
+      height: 28px;
+    }
+  }
+}
+
+/* Small Mobile Tweaks (400px and below) */
+@media (max-width: 400px) {
+  .item-thumbnail {
+    width: 140px !important;
+    height: 140px !important;
+  }
+
+  .item-info h2 {
+    font-size: 24px;
+  }
+
+  .platinum {
+    font-size: 22px;
+  }
 }

@@ -32,7 +32,7 @@
 
   <!-- Orders Tabs -->
   <div class="orders-tabs">
-    <div class="tab" [ngClass]="type()=='sell'?'active':'' " >Sell Orders </div>
+    <div (click)="selectOrderType('sell')" class="tab" [ngClass]="type()=='sell'?'active':'' " >Sell Orders </div>
     <div (click)="selectOrderType('buy')" class="tab" [ngClass]="type()=='buy'?'active':''">Buy Orders </div>
   </div>
 
@@ -52,7 +52,7 @@
                  [src]="order.user.avatar"
                  [alt]="order.user.ingameName">
             <div>
-              <span class="username">{{ order.user.ingameName }}</span>
+              <a href="https://warframe.market/profile/{{order.user.ingameName}}" target="_blank" class="username">{{ order.user.ingameName }}</a>
               <span class="reputation">{{ order.user.reputation }} rep</span>
             </div>
           </div>
@@ -65,7 +65,7 @@
               {{ order.user.status | titlecase }}
             </span>
             <span class="update-time">
-              Updated: {{ order.updatedAt | timeAgo }}
+               {{ order.updatedAt | timeAgo }}
             </span>
           </div>
         </div>
