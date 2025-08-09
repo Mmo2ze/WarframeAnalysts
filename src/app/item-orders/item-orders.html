@@ -1,75 +1,80 @@
 <div class="warframe-orders-container">
-  <!-- Item Header Section -->
-  <div class="item-header">
-    <div class="item-thumbnail" style="transition: transform 0.2s; width: 240px; height: 240px;">
-      <img [src]="'https://warframe.market/static/assets/' + item()?.info?.icon"
-           [alt]="item()?.info?.name"
-           style="transition: transform 0.2s; width: 100%; height: 100%; object-fit: contain;"
-           (mouseenter)="thumbnailHovered = true"
-           (mouseleave)="thumbnailHovered = false"
-           [style.transform]="thumbnailHovered ? 'scale(1.2)' : 'scale(1)'">
-    </div>
-    <div class="item-info">
-      <h2>{{ item()?.info?.name }}</h2>
-      <div class="item-meta">
-        <span class="rarity" [class]="getRarityClass(item()?.vaulted )">
+    <!-- Item Header Section -->
+    <div class="item-header">
+        <div class="item-thumbnail" style="transition: transform 0.2s; width: 240px; height: 240px;">
+            <img [src]="'https://warframe.market/static/assets/' + item()?.info?.icon"
+                 [alt]="item()?.info?.name"
+                 style="transition: transform 0.2s; width: 100%; height: 100%; object-fit: contain;"
+                 (mouseenter)="thumbnailHovered = true"
+                 (mouseleave)="thumbnailHovered = false"
+                 [style.transform]="thumbnailHovered ? 'scale(1.2)' : 'scale(1)'">
+        </div>
+        <div class="item-info">
+            <h2>{{ item()?.info?.name }}</h2>
+            <div class="item-meta" >
+        <span class="rarity" *ngIf="item()?.vaulted" [class]="getRarityClass(item()?.vaulted )">
 {{ item()?.vaulted ? 'Vaulted' : 'Unvaulted' }}
 </span>
-        <span class="ducats" *ngIf="item()?.ducats">
+                <span class="ducats" *ngIf="item()?.ducats">
           <i class="icon-ducat"></i> {{ item()?.ducats }} ducats
         </span>
                 <span *ngIf="item()?.reqMasteryRank" class="mastery">
                   MR {{ item()?.reqMasteryRank }}
                 </span>
-      </div>
+            </div>
             <p class="item-description">{{ item()?.info?.description }}</p>
-    </div>
-    <div class="item-actions">
-      <a href="{{item()?.info?.wikiLink}}" target="_blank"> Wiki</a>
-    </div>
+        </div>
+        <div class="item-actions">
+            <a href="{{item()?.info?.wikiLink}}" target="_blank"> Wiki</a>
 
-  </div>
-
-  <!-- Orders Tabs -->
-  <div class="orders-tabs">
-    <div (click)="selectOrderType('sell')" class="tab" [ngClass]="type()=='sell'?'active':'' " >Sell Orders </div>
-    <div (click)="selectOrderType('buy')" class="tab" [ngClass]="type()=='buy'?'active':''">Buy Orders </div>
-  </div>
-
-  <!-- Orders List -->
-  <div class="orders-list">
-    @for (order of orders(); track order.id) {
-      <div class="order-card">
-        <div class="order-price">
-          <span class="platinum">{{ order.platinum }}</span>
-          <span class="plat-icon">♢</span>
-          <span class="quantity">x{{ order.quantity }}</span>
+        </div>
+        <div class="item-actions">
+            <a href="{{ item()?.marketLink }}" target="_blank">Warframe Market</a>
         </div>
 
-        <div class="order-details">
-          <div class="user-info">
-            <img class="user-avatar"
-                 [src]="order.user.avatar"
-                 [alt]="order.user.ingameName">
-            <div>
-              <a href="https://warframe.market/profile/{{order.user.ingameName}}" target="_blank" class="username">{{ order.user.ingameName }}</a>
-              <span class="reputation">{{ order.user.reputation }} rep</span>
-            </div>
-          </div>
+    </div>
 
-          <div class="order-meta">
+    <!-- Orders Tabs -->
+    <div class="orders-tabs">
+        <div (click)="selectOrderType('sell')" class="tab" [ngClass]="type()=='sell'?'active':'' ">Sell Orders</div>
+        <div (click)="selectOrderType('buy')" class="tab" [ngClass]="type()=='buy'?'active':''">Buy Orders</div>
+    </div>
+
+    <!-- Orders List -->
+    <div class="orders-list">
+        @for (order of orders(); track order.id) {
+            <div class="order-card">
+                <div class="order-price">
+                    <span class="platinum">{{ order.platinum }}</span>
+                    <span class="plat-icon">♢</span>
+                    <span class="quantity">x{{ order.quantity }}</span>
+                </div>
+
+                <div class="order-details">
+                    <div class="user-info">
+                        <img class="user-avatar"
+                             [src]="order.user.avatar"
+                             [alt]="order.user.ingameName">
+                        <div>
+                            <a href="https://warframe.market/profile/{{order.user.ingameName}}" target="_blank"
+                               class="username">{{ order.user.ingameName }}</a>
+                            <span class="reputation">{{ order.user.reputation }} rep</span>
+                        </div>
+                    </div>
+
+                    <div class="order-meta">
             <span class="platform" [title]="order.user.platform | titlecase">
               <i [class]="'icon-' + getPlatformIcon(order.user.platform)"></i>
             </span>
-            <span class="status" [class]="getStatusClass(order.user.status)">
+                        <span class="status" [class]="getStatusClass(order.user.status)">
               {{ order.user.status | titlecase }}
             </span>
-            <span class="update-time">
+                        <span class="update-time">
                {{ order.updatedAt | timeAgo }}
             </span>
-          </div>
-        </div>
-      </div>
-    }
-  </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
 </div>

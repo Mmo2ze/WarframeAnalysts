@@ -187,6 +187,14 @@ interface ItemDetailsData {
   tradingTax: number;
   tradable: boolean;
   i18n: ItemInfo;
+  maxRank?: number
+  bulkTradable?: boolean
+  subtypes?: string[]
+  maxAmberStars?: number
+  maxCyanStars?: number
+  baseEndo?: number
+  endoMultiplier?: number
+  vaulted?: boolean
 }
 
 export interface ItemDetailsRes {
@@ -215,6 +223,7 @@ export class ItemDetails {
   tags: string[];
   setRoot: boolean;
   setParts: string[];
+
   maxRank?: number
   bulkTradable?: boolean
   ducats?: number
@@ -228,7 +237,7 @@ export class ItemDetails {
   tradingTax: number;
   tradable: boolean;
   info: InfoDetails;
-
+  marketLink:string
   constructor(data: ItemDetailsData) {
     this.id = data.id;
     this.slug = data.slug;
@@ -240,6 +249,18 @@ export class ItemDetails {
     this.reqMasteryRank = data.reqMasteryRank;
     this.tradingTax = data.tradingTax;
     this.tradable = data.tradable;
+    this.marketLink= `https://warframe.market/items/${this.slug}`;
+    this.maxRank = data.maxRank;
+    this.bulkTradable = data.bulkTradable;
+    this.subtypes = data.subtypes;
+    this.maxAmberStars = data.maxAmberStars;
+
+    this.maxCyanStars = data.maxCyanStars;
+    this.baseEndo = data.baseEndo;
+    this.endoMultiplier = data.endoMultiplier;
+    this.vaulted = data.vaulted;
+
+
     this.info = new InfoDetails(data.i18n.en);
   }
 }

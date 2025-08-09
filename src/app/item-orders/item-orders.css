@@ -41,7 +41,46 @@
   position: relative;
   z-index: 1;
 }
+/* ===== Warframe Link Styling ===== */
+a {
+  color: #8fb3ff; /* Warframe's link blue */
+  text-decoration: none;
+  font-weight: 600;
+  position: relative;
+  transition: all 0.2s ease;
+  padding: 2px 4px;
+  border-radius: 3px;
+}
 
+/* Hover/Focus States */
+a:hover,
+a:focus {
+  color: #b3cbff;
+  text-decoration: none;
+  background: rgba(143, 179, 255, 0.1);
+}
+
+/* Active State */
+a:active {
+  color: #f0c14b; /* Orokin gold */
+  transform: scale(0.98);
+}
+
+/* Wiki Link Specific */
+.item-actions a {
+  display: inline-block;
+  padding: 6px 12px;
+  margin: 4px 0;
+  background: rgba(30, 30, 50, 0.7);
+  border: 1px solid #3a3a4a;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+/* Warframe Market Link */
+.item-actions a[href*="warframe.market"] {
+  background: linear-gradient(135deg, rgba(30, 30, 50, 0.7) 0%, rgba(50, 50, 80, 0.7) 100%);
+}
 .item-thumbnail:hover {
   border-color: #f0c14b;
 }

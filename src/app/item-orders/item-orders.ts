@@ -64,6 +64,7 @@ export class ItemOrders implements OnInit {
             if (itemId) {
                 this.marketService.getItemDetails(itemId).subscribe(
                     (itemDetails: ItemDetails) => {
+                        console.log(itemDetails);
                         this.item.set(itemDetails);
                         this.isLoading = false;
                     },
@@ -99,7 +100,8 @@ export class ItemOrders implements OnInit {
     }
 
     getRarityClass(vaulted?: boolean): string {
-        return vaulted ? 'vaulted' : 'not-vaulted';
+        console.log(vaulted +" vaulted");
+        return vaulted ? 'vaulted'  : !vaulted? 'not-vaulted' :'';
     }
 
     getPlatformIcon(platform: string): string {
